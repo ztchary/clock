@@ -65,16 +65,14 @@ void enter() {
 	fflush(stdout);
 }
 
-void leave(int sg) {
-	(void)sg;
+void leave(int) {
 	printf("\e[?1049l\e[?25h");
 	tcsetattr(STDIN_FILENO, TCSAFLUSH, &original_termios);
 	fflush(stdout);
 	exit(0);
 }
 
-void winch(int sg) {
-	(void)sg;
+void winch(int) {
 	printf("\e[H\e[J");
 	fflush(stdout);
 }
